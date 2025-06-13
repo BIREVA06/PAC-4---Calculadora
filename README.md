@@ -1,54 +1,61 @@
 # PAC 4 – Calculadora WPF
 
-## Descripció
-Aplicació de Windows Presentation Foundation (WPF) que implementa una calculadora amb:
-- Operacions bàsiques: suma (+), resta (−), multiplicació (×), divisió (÷)
-- Suport per a expressions encadenades amb precedència d’operadors
-- Gestió de decimals segons cultura local
-- Botons d'eliminació (⌫) i neteja (C)
-- Validació d’errors (p. ex. divisió per zero, sintaxi invàlida)
-- Estils integrats per dígits, operadors i accions de perill
+## 📝 Descripció Breu
+Aplicació de Windows Presentation Foundation (WPF) que implementa una calculadora amb operacions bàsiques, expressions encadenades, gestió de decimals segons cultura local i control d’errors.
 
-## Autor
-Biel Reniu Valdés
+## 👤 Autor i ⚖️ Llicència
+**Autor:** Biel Reniu Valdés  
+**Llicència:** MIT License
 
-## Índex
-1. [Requisits](#requisits)
-2. [Instal·lació](#instal·lació)
-3. [Ús](#ús)
-4. [Exemples](#exemples)
-5. [Estils](#estils)
-6. [Captures de pantalla](#captures-de-pantalla)
-7. [Conclusió](#conclusió)
-8. [Llicència](#llicència)
+## 📑 Índex
+- [🌐 Requisits del Sistema](#-requisits-del-sistema)  
+- [✨ Funcionalitats Principals](#-funcionalitats-principals)  
+- [🚀 Guia d’Instal·lació](#-guia-dinstal·lació)  
+- [⚙️ Guia d’Ús](#-guia-dús)  
+- [💡 Exemples d’Ús](#-exemples-dús)  
+- [🎨 Estils](#-estils)  
+- [📸 Captures de Pantalla](#-captures-de-pantalla)  
+- [📝 Conclusions](#-conclusions)
 
-## Requisits
-- .NET 6.0 SDK o superior
-- Windows 10/11
+## 🌐 Requisits del Sistema
+- .NET 6.0 SDK o superior  
+- Windows 10/11  
 - Visual Studio 2022 (recomanat)
 
-## Instal·lació
+## ✨ Funcionalitats Principals
+- **Operacions bàsiques:** suma (+), resta (−), multiplicació (×), divisió (÷)  
+- **Expressions encadenades:** precedència correcta d’operadors  
+- **Decimals:** suport segons cultura local  
+- **Correcció d’entrada:** botons ⌫ (Backspace) i C (Clear)  
+- **Gestió d’errors:** divisió per zero i sintaxi invàlida  
+- **Estils:** colors diferenciats per dígits, operadors i accions d’avís
+
+## 🚀 Guia d’Instal·lació
 ```bash
 git clone <URL-del-repositori>
 cd PAC_4___Calculadora
 ```  
-Obre la solució `PAC_4___Calculadora.sln` a Visual Studio i prem **Build Solution**.
+1. Obre la solució `PAC_4___Calculadora.sln` a Visual Studio.  
+2. Prem **Build Solution** per compilar.
 
-## Ús
-1. Executa l’aplicació (F5 a Visual Studio o doble clic a l’executable).
-2. Introdueix nombres, operadors i punt decimal.
-3. Prem `=` per avaluar.
-4. Prem `C` per reiniciar l’expressió o `⌫` per eliminar l’últim caràcter.
+## ⚙️ Guia d’Ús
+1. Executa l’aplicació des de Visual Studio (F5) o amb un doble clic a l’executable.  
+2. Introdueix nombres, operadors i punt decimal.  
+3. Prem `=` per avaluar l’expressió i veure el resultat.  
+4. Prem `⌫` per eliminar l’últim caràcter o `C` per reiniciar tot el càlcul.
 
-## Exemples
-- `9 × 9 − 3 = 78`
-- `5 + 3 * 2 = 11` (respecta precedència)
-- `5 / 2 = 2,5`, després `× 4 = 10`
-- `8 ÷ 0` mostra `Error: Divisió per zero`
-- Sintaxi invàlida (`+5`, `5*−`) mostra `Error`
+## 💡 Exemples d’Ús
+| Expressió          | Resultat               |
+|--------------------|------------------------|
+| `9 × 9 − 3 =`      | 78                     |
+| `5 + 3 * 2 =`      | 11                     |
+| `5 / 2 =`          | 2,5                    |
+| (després) `× 4 =`  | 10                     |
+| `8 ÷ 0 =`          | Error: Divisió per zero |
+| Sintaxi `+5 =`     | Error                  |
 
-## Estils
-Els estils estan definits al fitxer XAML sota `<Window.Resources>`:
+## 🎨 Estils
+Els estils estan definits al XAML dins `<Window.Resources>`:
 ```xml
 <Style x:Key="DigitButton" TargetType="Button">
   <Setter Property="Background" Value="#F0F0F0"/>
@@ -64,23 +71,21 @@ Els estils estan definits al fitxer XAML sota `<Window.Resources>`:
 </Style>
 ```
 
-## Captures de pantalla
-
-### Interfície amb estils aplicats
-![Interfície inicial](screenshots/initial.png)
+## 📸 Captures de Pantalla
+### Interfície inicial
+![Interfície inicial](calculadora_inicial.png)
 
 ### Error per divisió per zero
-![Error divisió per zero](screenshots/divzero.png)
+![Error divisió per zero](Error%20Divisi%C3%B3%20per%20Zero.png)
 
 ### Error de sintaxi invàlida
-![Error sintaxi invàlida](screenshots/syntax-error.png)
+![Error de sintaxi invàlida](Error%20sintaxi%20inv%C3%A0lida.png)
 
-## Conclusió
-Aquest projecte demostra:
-- Separació clara entre XAML (vista) i code-behind (lògica).
-- Ús de `DataTable.Compute` per processar expressions amb precedència.
-- Maneig de culturals per decimals i detecció d’errors com divisió per zero.
-- Integració d'estils al mateix XAML per un sol fitxer de disseny.
+## 📝 Conclusions
+Aquest projecte ha mostrat:
+- Separació neta entre la vista (XAML) i la lògica (C#).  
+- Ús de `DataTable.Compute` per processar expressions amb precedència.  
+- Adaptació de la interfície a la cultura local per decimals.  
+- Gestió proactiva d’errors per a millor experiència d’usuari.
 
-## Llicència
-MIT © Biel Reniu Valdés
+**MIT © Biel Reniu Valdés**
